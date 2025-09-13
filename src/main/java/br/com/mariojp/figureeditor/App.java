@@ -10,7 +10,7 @@ public class App {
                 UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             } catch (Exception ignored) {}
 
-            JFrame frame = new JFrame("Figure Editor — Clique para inserir figuras");
+            JFrame frame = new JFrame( "Figure Editor — Clique para inserir figuras");
             frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
             DrawingPanel panel = new DrawingPanel();
