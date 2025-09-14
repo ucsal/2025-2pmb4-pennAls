@@ -13,13 +13,13 @@ import java.util.List;
 
 class DrawingPanel extends JPanel {
 
+    private Color currentColor = Color.black;
     private static final long serialVersionUID = 1L;
     private static final int DEFAULT_SIZE = 60;
     private final List<Figura> shapes = new ArrayList<>();
     private Point startDrag = null;
 
     DrawingPanel() {
-        
         setBackground(Color.WHITE);
         setOpaque(true);
         setDoubleBuffered(true);
@@ -31,7 +31,7 @@ class DrawingPanel extends JPanel {
                     int posY = e.getPoint().y;
                     int size = DEFAULT_SIZE;
                     FigureCreator figureCreator = new QuadradoCreator();
-                    Figura novaFigura = figureCreator.criarFigura(posX, posY, size);
+                    Figura novaFigura = figureCreator.criarFigura(posX, posY, size, currentColor);
                     shapes.add(novaFigura);
                     repaint();
                 }
@@ -56,6 +56,12 @@ class DrawingPanel extends JPanel {
         }
 
         g2.dispose();
+    }
+    protected void setCurrentColor(Color newColor) {
+        this.currentColor = newColor;
+    }
+    public Color getCurrentColor() {
+        return this.currentColor;
     }
 
 }
